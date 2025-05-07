@@ -1,0 +1,116 @@
+{
+  "categories": [
+    {
+      "id": "all",
+      "name": "ทั้งหมด"
+    },
+    {
+      "id": "main",
+      "name": "อาหารจานหลัก"
+    },
+    {
+      "id": "appetizer",
+      "name": "อาหารเรียกน้ำย่อย"
+    },
+    {
+      "id": "dessert",
+      "name": "ของหวาน"
+    },
+    {
+      "id": "beverage",
+      "name": "เครื่องดื่ม"
+    }
+  ],
+  "items": [
+    {
+      "id": 1,
+      "name": "ต้มยำกุ้ง",
+      "category": "main",
+      "price": 180,
+      "description": "ต้มยำกุ้งน้ำข้น รสชาติเข้มข้น กุ้งสดใหม่ เสิร์ฟพร้อมข้าวสวย",
+      "image": "https://i.pinimg.com/736x/83/5d/b7/835db7db3d9f0607a672a33c98b5a048.jpg",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "name": "ผัดไทยกุ้งสด",
+      "category": "main",
+      "price": 120,
+      "description": "ผัดไทยสูตรดั้งเดิม เส้นนุ่ม กุ้งสดใหม่ คลุกเคล้ากับซอสรสเข้มข้น",
+      "image": "https://i.pinimg.com/736x/98/c9/5d/98c95df876af9448fe3da03c0a9507cc.jpg",
+      "featured": true
+    },
+    {
+      "id": 3,
+      "name": "แกงเขียวหวานไก่",
+      "category": "main",
+      "price": 150,
+      "description": "แกงเขียวหวานไก่เนื้อนุ่ม รสชาติกลมกล่อม เสิร์ฟพร้อมข้าวสวย",
+      "image": "https://i.pinimg.com/736x/0d/d4/1d/0dd41dd1670880d153030edc9b2c0469.jpg",
+      "featured": true
+    },
+    {
+      "id": 4,
+      "name": "ผัดกระเพราหมูสับไข่ดาว",
+      "category": "main",
+      "price": 120,
+      "description": "ผัดกระเพราหมูสับรสจัดจ้าน เสิร์ฟพร้อมไข่ดาวและข้าวสวย",
+      "image": "https://i.pinimg.com/736x/e8/30/34/e83034e9c64884fe20f66428f318cc38.jpg",
+      "featured": false
+    },
+    {
+      "id": 5,
+      "name": "ปอเปี๊ยะทอด",
+      "category": "appetizer",
+      "price": 90,
+      "description": "ปอเปี๊ยะทอดกรอบ ไส้หมูสับและผัก เสิร์ฟพร้อมน้ำจิ้มรสเด็ด",
+      "image": "https://i.pinimg.com/736x/e3/e8/57/e3e85774a9c8639f999cc90aa224f386.jpg",
+      "featured": false
+    },
+    {
+      "id": 6,
+      "name": "ยำวุ้นเส้น",
+      "category": "appetizer",
+      "price": 120,
+      "description": "ยำวุ้นเส้นรสเผ็ดเปรี้ยว ใส่กุ้งสด หมูสับ และผักสด",
+      "image": "https://i.pinimg.com/736x/da/97/e7/da97e784f768f45ade286d1b8213666e.jpg",
+      "featured": false
+    },
+    {
+      "id": 7,
+      "name": "ข้าวเหนียวมะม่วง",
+      "category": "dessert",
+      "price": 100,
+      "description": "ข้าวเหนียวมูนหอมมัน ราดด้วยกะทิสด เสิร์ฟพร้อมมะม่วงน้ำดอกไม้สุก",
+      "image": "https://i.pinimg.com/736x/aa/cb/0b/aacb0bc748a1d2db9f8af6c21cedbc06.jpg",
+      "featured": false
+    },
+    {
+      "id": 8,
+      "name": "บัวลอย",
+      "category": "dessert",
+      "price": 80,
+      "description": "บัวลอยไส้งาดำ ในน้ำกะทิหอมหวาน",
+      "image": "https://i.pinimg.com/736x/ef/1f/a7/ef1fa7d93ab37745479f05d9b009bddb.jpg",
+      "featured": false
+    },
+    {
+      "id": 9,
+      "name": "ชาไทยเย็น",
+      "category": "beverage",
+      "price": 60,
+      "description": "ชาไทยรสชาติเข้มข้น หวานมัน เสิร์ฟพร้อมน้ำแข็ง",
+      "image": "https://i.pinimg.com/736x/ec/ba/21/ecba217fa648dcecd80f91e88dd8b889.jpg",
+      "featured": false
+    },
+    {
+      "id": 10,
+      "name": "น้ำมะนาว",
+      "category": "beverage",
+      "price": 50,
+      "description": "น้ำมะนาวสดคั้น หวานอมเปรี้ยว เสิร์ฟพร้อมน้ำแข็ง",
+      "image": "https://i.pinimg.com/736x/29/d1/a2/29d1a28d53310b072edea53622f078ec.jpg",
+      "featured": false
+    }
+  ]
+}

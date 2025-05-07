@@ -1,53 +1,12 @@
 'use client';
 
-import { useEffect } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
+
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 export default function Contact() {
   
-  useEffect(() => {
-    
-    const contactForm = document.getElementById('contactForm');
-    
-    
-    
-    
-    function showError(input, message) {
-      const formGroup = input.parentElement;
-      const errorElement = document.createElement('div');
-      errorElement.className = 'error-message';
-      errorElement.textContent = message;
-      errorElement.style.color = 'red';
-      errorElement.style.fontSize = '0.8rem';
-      errorElement.style.marginTop = '0.3rem';
-      formGroup.appendChild(errorElement);
-      
-      input.style.borderColor = 'red';
-      
-      input.addEventListener('focus', function() {
-        input.style.borderColor = '';
-        const error = formGroup.querySelector('.error-message');
-        if (error) {
-          error.remove();
-        }
-      });
-    }
-    
-    function isValidEmail(email) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return emailRegex.test(email);
-    }
-
-    
-    return () => {
-      if (contactForm) {
-        contactForm.removeEventListener('submit', () => {});
-      }
-    };
-  }, []);
+  
 
   return (
     <main>

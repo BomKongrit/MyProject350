@@ -1,71 +1,75 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import { getFeaturedMenuItems } from './utils/menuUtils';
 
 export default function Home() {
-  useEffect(() => {
-    const dishes = document.querySelectorAll('.dish');
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
-    
-    if (dishes.length > 0 && prevBtn && nextBtn) {
-      let slideIndex = 0;
-      const totalSlides = dishes.length;
-      
-      const getVisibleSlides = () => {
-        if (window.innerWidth >= 992) return 3;
-        if (window.innerWidth >= 768) return 2;
-        return 1;
-      };
-      
-      const updateSlider = () => {
-        const visibleSlides = getVisibleSlides();
-        
-        dishes.forEach((dish, index) => {
-          if (index >= slideIndex && index < slideIndex + visibleSlides) {
-            dish.style.display = 'block';
-          } else {
-            dish.style.display = 'none';
-          }
-        });
-      };
-      
-      prevBtn.addEventListener('click', () => {
-        slideIndex = Math.max(0, slideIndex - 1);
-        updateSlider();
-      });
-      
-      nextBtn.addEventListener('click', () => {
-        const visibleSlides = getVisibleSlides();
-        slideIndex = Math.min(totalSlides - visibleSlides, slideIndex + 1);
-        updateSlider();
-      });
-      
-    
-      updateSlider();
-      
-      
-      window.addEventListener('resize', updateSlider);
-    }
+  const [featuredDishes, setFeaturedDishes] = useState([]);
 
-    
-    return () => {
-      if (prevBtn && nextBtn) {
-        prevBtn.removeEventListener('click', () => {});
-        nextBtn.removeEventListener('click', () => {});
-        window.removeEventListener('resize', () => {});
-      }
-    };
+  useEffect(() => {
+    // Load featured menu items from JSON
+    setFeaturedDishes(getFeaturedMenuItems());
   }, []);
+
+  useEffect(() => {
+    if (featuredDishes.length > 0) {
+      const dishes = document.querySelectorAll('.dish');
+      const prevBtn = document.querySelector('.prev-btn');
+      const nextBtn = document.querySelector('.next-btn');
+      
+      if (dishes.length > 0 && prevBtn && nextBtn) {
+        let slideIndex = 0;
+        const totalSlides = dishes.length;
+        
+        const getVisibleSlides = () => {
+          if (window.innerWidth >= 992) return 3;
+          if (window.innerWidth >= 768) return 2;
+          return 1;
+        };
+        
+        const updateSlider = () => {
+          const visibleSlides = getVisibleSlides();
+          
+          dishes.forEach((dish, index) => {
+            if (index >= slideIndex && index < slideIndex + visibleSlides) {
+              dish.style.display = 'block';
+            } else {
+              dish.style.display = 'none';
+            }
+          });
+        };
+        
+        prevBtn.addEventListener('click', () => {
+          slideIndex = Math.max(0, slideIndex - 1);
+          updateSlider();
+        });
+        
+        nextBtn.addEventListener('click', () => {
+          const visibleSlides = getVisibleSlides();
+          slideIndex = Math.min(totalSlides - visibleSlides, slideIndex + 1);
+          updateSlider();
+        });
+        
+        updateSlider();
+        
+        window.addEventListener('resize', updateSlider);
+        
+        return () => {
+          prevBtn.removeEventListener('click', () => {});
+          nextBtn.removeEventListener('click', () => {});
+          window.removeEventListener('resize', () => {});
+        };
+      }
+    }
+  }, [featuredDishes]);
 
   return (
     <main>
       <Header />
-
       
       <section className="hero">
         <div className="hero-content">
@@ -74,45 +78,24 @@ export default function Home() {
           <Link href="/menu" className="btn">ดูเมนูอาหาร</Link>
         </div>
       </section>
-
       
       <section className="featured-dishes">
         <div className="container">
           <h2 className="section-title">เมนูแนะนำ</h2>
           <div className="dishes-slider">
-            <div className="dish">
-              <img
-                src="https://i.pinimg.com/736x/83/5d/b7/835db7db3d9f0607a672a33c98b5a048.jpg" 
-                alt="เมนูแนะนำ 1" 
-                width={300} 
-                height={200} 
-              />
-              <h3>ต้มยำกุ้ง</h3>
-              <p>ต้มยำกุ้งน้ำข้น รสชาติเข้มข้น กุ้งสดใหม่</p>
-              <span className="price">฿180</span>
-            </div>
-            <div className="dish">
-              <img
-                src="https://i.pinimg.com/736x/98/c9/5d/98c95df876af9448fe3da03c0a9507cc.jpg" 
-                alt="เมนูแนะนำ 2" 
-                width={300} 
-                height={200} 
-              />
-              <h3>ผัดไทยกุ้งสด</h3>
-              <p>ผัดไทยสูตรดั้งเดิม เส้นนุ่ม กุ้งสดใหม่</p>
-              <span className="price">฿120</span>
-            </div>
-            <div className="dish">
-              <img 
-                src="https://i.pinimg.com/736x/0d/d4/1d/0dd41dd1670880d153030edc9b2c0469.jpg" 
-                alt="เมนูแนะนำ 3" 
-                width={300} 
-                height={200} 
-              />
-              <h3>แกงเขียวหวานไก่</h3>
-              <p>แกงเขียวหวานไก่เนื้อนุ่ม รสชาติกลมกล่อม</p>
-              <span className="price">฿150</span>
-            </div>
+            {featuredDishes.map((dish) => (
+              <div key={dish.id} className="dish">
+                <img
+                  src={dish.image}
+                  alt={dish.name}
+                  width={300}
+                  height={200}
+                />
+                <h3>{dish.name}</h3>
+                <p>{dish.description}</p>
+                <span className="price">฿{dish.price}</span>
+              </div>
+            ))}
           </div>
           <div className="slider-controls">
             <button className="prev-btn"><i className="fas fa-chevron-left"></i></button>

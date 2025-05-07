@@ -1,10 +1,4 @@
 import "./globals.css";
-
-export const metadata = {
-  title: "อร่อยเด็ด - ร้านอาหารรสชาติเยี่ยม",
-  description: "ร้านอาหารไทยรสชาติดั้งเดิม ใช้วัตถุดิบคุณภาพดี สดใหม่ทุกวัน",
-};
-
 export default function RootLayout({ children }) {
   return (
     <html lang="th">

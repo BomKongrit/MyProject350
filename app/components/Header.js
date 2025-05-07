@@ -53,6 +53,7 @@ export default function Header() {
             <li><Link href="/" className={pathname === '/' ? 'active' : ''}>หน้าหลัก</Link></li>
             <li><Link href="/menu" className={pathname === '/menu' ? 'active' : ''}>เมนูอาหาร</Link></li>
             <li><Link href="/contact" className={pathname === '/contact' ? 'active' : ''}>ติดต่อเรา</Link></li>
+            <li><Link href="/admin" className={pathname === '/admin' ? 'active' : ''}>จัดการเมนู</Link></li>
           </ul>
           <div className="hamburger">
             <span></span>
